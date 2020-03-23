@@ -70,6 +70,26 @@ BE SURE THE FIRMWARE FITS YOUR DEVICE!
 
 	If you flashed the included ESPurna firmware file, the procedure will be very similar. The device will broadcast a `ESPURNA-XXXXXX` access point. You will have to connect to it using the default password: `fibonacci`. Once connected open the browser to 192.168.4.1 and follow the initial configuration instructions. Then go to the WIFI tab and configure your home WiFi connection (remember to save) or go to the ADMIN tab to upgrade the firmware to the device-specific image. 
 
+## USING a Raspberry Pi
+If you have a Raspberry Pi and a MicroSDCard, this solution might convenient.
+Requirements:
+* Raspberry Pi
+* MicroSD Card
+
+Flash Raspian on the MicroSD Card (For example Raspian Buster with the LibreElec USB Creator, as it doenst need install)
+After this is complete, create a file named "ssh" in the root of the Boot partition.
+Boot the Raspberry Pi and find the IP out... Then SSH in... (user: pi, pw: raspberry)
+Before you start the updates / upgrades and cloning, I had to set the Wifi Region  otherwise the Wifi wouldnt come up
+(https://www.raspberrypi.org/documentation/configuration/raspi-config.md):
+
+Now the commands to enter (and of course sometime to acknowledge some question):
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git
+
+finally the steps mentioned under ### INSTALLATION are needed..
+
 ## USING DOCKER
 You may want to use a docker image instead. Advantage of this solution: You don't have to install anything on your host (except docker), everything goes into the docker image.
 Requirements:
